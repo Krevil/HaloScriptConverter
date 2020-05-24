@@ -18,28 +18,28 @@ namespace HaloScriptConverter
                 List<byte> File1List = File1.ToList(); //Convert to list because removing elements from arrays is yucky
                 Console.WriteLine(File1List.Capacity);
                 int File1ListCapacity = File1List.Capacity;
-                for (int i = 0; i < File1ListCapacity; i = i + 23) //Loop through the file, del first byte 
+                for (int i = 20; i < File1ListCapacity; i = i + 23) //Loop through the file, del first byte 
                 {
                     {
                         File1List.RemoveAt(i);
-                        File1ListCapacity = File1ListCapacity-1; //The list is now one element less, so it doesn't try to go over capacity do this
+                        File1ListCapacity = File1ListCapacity - 1; //The list is now one element less, so it doesn't try to go over capacity do this
                     }
                 }
-                for (int i = 0; i < File1ListCapacity; i = i + 22) //Repeat the loops four times because there's four bytes that need to go
-                {
-                    {
-                        File1List.RemoveAt(i);
-                        File1ListCapacity = File1ListCapacity - 1;
-                    }
-                }
-                for (int i = 0; i < File1ListCapacity; i = i + 21)
+                for (int i = 20; i < File1ListCapacity; i = i + 22) //Repeat the loops four times because there's four bytes that need to go
                 {
                     {
                         File1List.RemoveAt(i);
                         File1ListCapacity = File1ListCapacity - 1;
                     }
                 }
-                for (int i = 0; i < File1ListCapacity; i = i + 20)
+                for (int i = 20; i < File1ListCapacity; i = i + 21)
+                {
+                    {
+                        File1List.RemoveAt(i);
+                        File1ListCapacity = File1ListCapacity - 1;
+                    }
+                }
+                for (int i = 20; i < File1ListCapacity; i = i + 20)
                 {
                     {
                         File1List.RemoveAt(i);
