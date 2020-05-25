@@ -128,7 +128,7 @@ namespace HaloScriptConverter
                         }
                     }
                 }
-                for (int i = 4; i < File1ListCapacity; i = i + 23) //Value types, hopefully not too many of these. Doesn't seem to be working atm
+                for (int i = 4; i < File1ListCapacity; i = i + 24) //Value types, hopefully not too many of these.
                 {
                     {
                         if (File1List[i] == 54)
