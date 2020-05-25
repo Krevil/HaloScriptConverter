@@ -23,9 +23,121 @@ namespace HaloScriptConverter
                         {
                             File1List[i] = 38;
                         }
+                        if (File1List[i] == 28)
+                        {
+                            File1List[i] = 31;
+                        }
+                        if (File1List[i] == 189)
+                        {
+                            File1List[i] = 124;
+                        }
+                        if ((File1List[i] == 169) && (File1List[i+1] == 1))
+                        {
+                            File1List[i] = 34;
+                        }
+                        if (File1List[i] == 22)
+                        {
+                            File1List[i] = 19;
+                        }
+                        if (File1List[i] == 18)
+                        {
+                            File1List[i] = 15;
+                        }
+                        if ((File1List[i] == 234) && (File1List[i+1] == 1))
+                        {
+                            File1List[i] = 71;
+                        }
+                        if ((File1List[i] == 207) && (File1List[i+1] == 1))
+                        {
+                            File1List[i] = 54;
+                        }
                         if (File1List[i] == 56)
                         {
                             File1List[i] = 28;
+                        }
+                        if (File1List[i] == 54)
+                        {
+                            File1List[i] = 45;
+                        }
+                        if (File1List[i] == 4)
+                        {
+                            File1List[i] = 2;
+                        }
+                        if ((File1List[i] == 250) && (File1List[i+1] == 4))
+                        {
+                            File1List[i] = 113;
+                            File1List[i+1] = 2;
+                        }
+                        if ((File1List[i] == 3) && (File1List[i + 1] == 4))
+                        {
+                            File1List[i] = 45;
+                            File1List[i + 1] = 2;
+                        }
+                        if (File1List[i] == 21)
+                        {
+                            File1List[i] = 18;
+                        }
+                        if (File1List[i] == 24)
+                        {
+                            File1List[i] = 21;
+                        }
+                        if ((File1List[i] == 5) && (File1List[i + 1] == 4))
+                        {
+                            File1List[i] = 47;
+                            File1List[i + 1] = 2;
+                        }
+                        if ((File1List[i] == 122) && (File1List[i + 1] == 4))
+                        {
+                            File1List[i] = 75;
+                            File1List[i + 1] = 2;
+                        }
+                        if ((File1List[i] == 0) && (File1List[i + 1] == 4))
+                        {
+                            File1List[i] = 42;
+                            File1List[i + 1] = 2;
+                        }
+                        if ((File1List[i] == 4) && (File1List[i + 1] == 4))
+                        {
+                            File1List[i] = 46;
+                            File1List[i + 1] = 2;
+                        }
+                        if ((File1List[i] == 59) && (File1List[i + 1] == 3))
+                        {
+                            File1List[i] = 194;
+                            File1List[i + 1] = 1;
+                        }
+                        if ((File1List[i] == 242) && (File1List[i + 1] == 3))
+                        {
+                            File1List[i] = 39;
+                            File1List[i + 1] = 2;
+                        }
+                        if ((File1List[i] == 100) && (File1List[i + 1] == 3))
+                        {
+                            File1List[i] = 217;
+                            File1List[i + 1] = 1;
+                        }
+                        if ((File1List[i] == 106) && (File1List[i + 1] == 3))
+                        {
+                            File1List[i] = 221;
+                            File1List[i + 1] = 1;
+                        }
+                        if ((File1List[i] == 121) && (File1List[i + 1] == 2)) //VS_Role, being used as a substitute for switch bsp
+                        {
+                            File1List[i] = 251;
+                            File1List[i + 1] = 1;
+                        }
+                    }
+                }
+                for (int i = 4; i < File1ListCapacity; i = i + 23) //Value types, hopefully not too many of these. Doesn't seem to be working atm
+                {
+                    {
+                        if (File1List[i] == 54)
+                        {
+                            File1List[i] = 45;
+                        }
+                        if (File1List[i] == 32)
+                        {
+                            File1List[i] = 31;
                         }
                     }
                 }
