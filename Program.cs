@@ -126,6 +126,10 @@ namespace HaloScriptConverter
                             File1List[i] = 251;
                             File1List[i + 1] = 1;
                         }
+                        if (File1List[i] == 99)
+                        {
+                            File1List[i] = 48;
+                        }
                     }
                 }
                 for (int i = 4; i < File1ListCapacity; i = i + 24) //Value types, hopefully not too many of these.
