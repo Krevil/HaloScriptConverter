@@ -19,7 +19,7 @@ namespace HaloScriptConverter
                 for (int i = 2; i < File1ListCapacity; i = i + 24) //Looks for opcodes of a value and changes them if they exist
                 {
                     {
-                        if (File1List[i] == 78)
+                        if ((File1List[i] == 78) && (File1List[i + 2] != 78))
                         {
                             File1List[i] = 38;
                         }
@@ -143,7 +143,12 @@ namespace HaloScriptConverter
                         {
                             File1List[i] = 31;
                         }
+                        if (File1List[i] == 78)
+                        {
+                            File1List[i] = 56;
+                        }
                     }
+
                 }
                 for (int i = 20; i < File1ListCapacity; i = i + 23) //Loop through the file, del first byte 
                 {
