@@ -55,7 +55,7 @@ namespace HaloScriptConverter
                         {
                             File1List[i] = 28;
                         }
-                        if (File1List[i] == 54)
+                        if ((File1List[i] == 54) && (File1List[i+1] != 1))
                         {
                             File1List[i] = 45;
                         }
