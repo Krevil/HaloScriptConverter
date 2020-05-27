@@ -23,6 +23,10 @@ namespace HaloScriptConverter
                         {
                             File1List[i] = 38;
                         }
+                        if ((File1List[i] == 78) && (File1List[i + 2] == 78))
+                        {
+                            File1List[i] = 56;
+                        }
                         if (File1List[i] == 28)
                         {
                             File1List[i] = 31;
@@ -51,7 +55,7 @@ namespace HaloScriptConverter
                         {
                             File1List[i] = 54;
                         }
-                        if (File1List[i] == 56)
+                        if ((File1List[i] == 56) && (File1List[i + 2] != 78))
                         {
                             File1List[i] = 28;
                         }
@@ -59,7 +63,7 @@ namespace HaloScriptConverter
                         {
                             File1List[i] = 45;
                         }
-                        if (File1List[i] == 4)
+                        if ((File1List[i] == 4) && (File1List[i + 1] != 4))
                         {
                             File1List[i] = 2;
                         }
@@ -146,6 +150,10 @@ namespace HaloScriptConverter
                         if (File1List[i] == 78)
                         {
                             File1List[i] = 56;
+                        }
+                        if ((File1List[i] == 78) && (File1List[i-2] == 251))
+                        {
+                            File1List[i] = 4;
                         }
                     }
 
