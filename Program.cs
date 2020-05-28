@@ -129,10 +129,15 @@ namespace HaloScriptConverter
                         {
                             File1List[i] = 251;
                             File1List[i + 1] = 1;
+                            File1List[i + 2] = 4;
                         }
                         if (File1List[i] == 99)
                         {
                             File1List[i] = 48;
+                        }
+                        if ((File1List[i] == 6) && (File1List[i + 2] != 6))
+                        {
+                            File1List[i] = 4;
                         }
                     }
                 }
