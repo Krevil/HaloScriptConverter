@@ -129,6 +129,9 @@ namespace HaloScriptConverter
                         {
                             File1List[i] = 251;
                             File1List[i + 1] = 1;
+                        }
+                        if ((File1List[i] == 251) && (File1List[i + 1] == 1) && (File1List[i + 2] == 19)) //VS_Role, being used as a substitute for switch bsp
+                        {
                             File1List[i + 2] = 4;
                         }
                         if (File1List[i] == 99)
@@ -138,6 +141,10 @@ namespace HaloScriptConverter
                         if ((File1List[i] == 6) && (File1List[i + 2] != 6))
                         {
                             File1List[i] = 4;
+                        }
+                        if ((File1List[i] == 16) && (File1List[i + 2] != 16))
+                        {
+                            File1List[i] = 13;
                         }
                     }
                 }
