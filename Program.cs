@@ -18,6 +18,31 @@ namespace HaloScriptConverter
                 byte[] File1 = File.ReadAllBytes(string3);
                 List<byte> File1List = File1.ToList(); //Convert to list because removing elements from arrays is yucky
                 int File1ListCapacity = File1List.Capacity;
+                if ((string1.ToLower() == "reach") && (string2.ToLower() == "h3mcc")) //no byte stripping, yay!
+                {
+                    for (int i = 2; i < File1ListCapacity; i = i + 24) //Looks for opcodes of a value and changes them if they exist
+                    {
+                        {
+                            if ((File1List[i] == 78) && (File1List[i + 2] != 78)) //list_count
+                            {
+                                File1List[i] = 52;
+                            }
+                        }
+                    }
+                    for (int i = 4; i < File1ListCapacity; i = i + 24) //Value types
+                    {
+                        {
+                            if (File1List[i] == 54)
+                            {
+                                File1List[i] = 45;
+                            }
+                        }
+
+                    }
+                    byte[] File1Array = File1List.ToArray(); //Back to an array so we can write it to file
+                    File.WriteAllBytes(string4, File1Array);
+                    Console.WriteLine("Operation completed successfully.");
+                }
                 if ((string1.ToLower() == "reach") && (string2.ToLower() == "h2mcc"))
                 {
                     for (int i = 2; i < File1ListCapacity; i = i + 24) //Looks for opcodes of a value and changes them if they exist
@@ -220,6 +245,7 @@ namespace HaloScriptConverter
                 Console.WriteLine("Example: HaloScriptConverter reach h2mcc ScriptHex NewScriptHex");
                 Console.WriteLine("Current supported conversions:");
                 Console.WriteLine("reach to h2mcc");
+                Console.WriteLine("reach to h3mcc");
             }
         }
     }
