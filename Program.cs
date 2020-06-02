@@ -301,6 +301,29 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 13;
                             }
+                            if ((File1List[i] == 45) && (File1List[i + 1] == 1)) //unit_in_vehicle
+                            {
+                                File1List[i] = 222;
+                                File1List[i+1] = 0;
+                            }
+                            if ((File1List[i] == 113) && (File1List[i + 1] == 3)) //player_action_test_jump
+                            {
+                                File1List[i] = 223;
+                                File1List[i + 1] = 1;
+                            }
+                            if ((File1List[i] == 107) && (File1List[i + 1] == 3)) //player_action_test_reset
+                            {
+                                File1List[i] = 222;
+                                File1List[i + 1] = 1;
+                            }
+                            if ((File1List[i] == 30) && (File1List[i + 1] == 0)) //unit
+                            {
+                                File1List[i] = 21;
+                            }
+                            if ((File1List[i] == 77) && (File1List[i + 1] == 0)) //list_get
+                            {
+                                File1List[i] = 37;
+                            }
                             if ((File1List[i] == 180) && (File1List[i + 1] == 3)) //switch_zone_set (arg zoneset)
                             {
                                 Console.WriteLine("switch_zone_set Function not supported in Halo 2");
@@ -325,6 +348,14 @@ namespace HaloScriptConverter
                             if ((File1List[i] == 78) && (File1List[i - 2] == 251))
                             {
                                 File1List[i] = 4;
+                            }
+                            if (File1List[i] == 72) //unit
+                            {
+                                File1List[i] = 51;
+                            }
+                            if (File1List[i] == 71) //object
+                            {
+                                File1List[i] = 50;
                             }
                         }
 
