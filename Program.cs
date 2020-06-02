@@ -301,6 +301,10 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 13;
                             }
+                            if ((File1List[i] == 180) && (File1List[i + 1] == 3)) //switch_zone_set (arg zoneset)
+                            {
+                                Console.WriteLine("switch_zone_set Function not supported in Halo 2");
+                            }
                         }
                     }
                     for (int i = 4; i < File1ListCapacity; i = i + 24) //Value types, hopefully not too many of these.
