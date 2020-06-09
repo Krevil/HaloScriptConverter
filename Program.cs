@@ -414,7 +414,7 @@ namespace HaloScriptConverter
                                 File1List[i] = 5;
                                 File1List[i + 1] = 0;
                             }
-                            if ((File1List[i] == 77) && (File1List[i + 1] == 1)) //ai_disregard
+                            if ((File1List[i] == 212) && (File1List[i + 1] == 1)) //ai_disregard
                             {
                                 File1List[i] = 58;
                                 File1List[i + 1] = 1;
@@ -433,6 +433,16 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 120;
                                 File1List[i + 1] = 2;
+                            }
+                            if ((File1List[i] == 152) && (File1List[i + 1] == 0)) //object_cannot_take_damage
+                            {
+                                File1List[i] = 90;
+                                File1List[i + 1] = 0;
+                            }
+                            if ((File1List[i] == 155) && (File1List[i + 1] == 0)) //object_can_take_damage
+                            {
+                                File1List[i] = 91;
+                                File1List[i + 1] = 0;
                             }
                         }
                     }
