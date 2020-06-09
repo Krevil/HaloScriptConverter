@@ -38,7 +38,6 @@ namespace HaloScriptConverter
                 {
                     throw new IndexOutOfRangeException("Hey, stop that! You're breaking my fragile code!");
                 }
-                Console.WriteLine(InputGame);
                 byte[] File1 = File.ReadAllBytes(InputFile);
                 List<byte> File1List = File1.ToList(); //Convert to list because removing elements from arrays is yucky
                 int File1ListCapacity = File1List.Capacity;
