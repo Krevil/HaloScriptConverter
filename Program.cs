@@ -11,14 +11,59 @@ namespace HaloScriptConverter
         {
             try
             {
-                string string1 = args[0];
-                string string2 = args[1];
-                string string3 = args[2]; //So it uses the args like all the big boy programs
-                string string4 = args[3];
-                byte[] File1 = File.ReadAllBytes(string3);
+                if (args.Length < 4)
+                {
+                    Console.WriteLine("Please specify an input game");
+                    args[0] = Console.ReadLine();
+                    Console.WriteLine("Please specify an output game");
+                    args[1] = Console.ReadLine();
+                    Console.WriteLine("Please specify an input file");
+                    args[2] = Console.ReadLine();
+                    Console.WriteLine("Please specify an output file");
+                    args[3] = Console.ReadLine();
+                }
+                byte[] File1 = File.ReadAllBytes(args[2]);
                 List<byte> File1List = File1.ToList(); //Convert to list because removing elements from arrays is yucky
                 int File1ListCapacity = File1List.Capacity;
-                if ((string1.ToLower() == "reach") && (string2.ToLower() == "h3mcc")) //no byte stripping, yay!
+                #region h3campaignforge
+                /*if ((args[0].ToLower() == "h3") && (args[1].ToLower() == "h3forge")) //for removing undesirables
+                {
+                    for (int i = 2; i < File1ListCapacity; i = i + 24) //Looks for opcodes of a value and changes them if they exist
+                    {
+                        {
+                            if ((File1List[i] == 3) && (File1List[i + 1] == 149)) //game_save
+                            {
+                                File1List[i] = 3;
+                                File1List[i+1] = 218; //error_geometry_show_all
+                            }
+                            if ((File1List[i] == 3) && (File1List[i + 1] == 152)) //game_save_immediate
+                            {
+                                File1List[i] = 3;
+                                File1List[i + 1] = 218; //error_geometry_show_all
+                            }
+                            if ((File1List[i] == 4) && (File1List[i + 1] == 227)) //game_save_cinematic_skip
+                            {
+                                File1List[i] = 31;
+                                File1List[i + 1] = 218; //error_geometry_show_all
+                            }
+                            if ((File1List[i] == 3) && (File1List[i + 1] == 150)) //game_save_cancel
+                            {
+                                File1List[i] = 3;
+                                File1List[i + 1] = 218; //error_geometry_show_all
+                            }
+                            if ((File1List[i] == 1) && (File1List[i + 1] == 51)) //cheats_load because i'm a dense fuck
+                            {
+                                File1List[i] = 3;
+                                File1List[i + 1] = 218; //error_geometry_show_all
+                            }
+                        }
+                    }
+                    byte[] File1Array = File1List.ToArray(); //Back to an array so we can write it to file
+                    File.WriteAllBytes(args[3], File1Array);
+                    Console.WriteLine("Operation completed successfully.");
+                }*/
+                #endregion
+                if ((args[0].ToLower() == "reach") && (args[1].ToLower() == "h3mcc")) //no byte stripping, yay!
                 {
                     for (int i = 2; i < File1ListCapacity; i = i + 24) //Looks for opcodes of a value and changes them if they exist
                     {
@@ -166,10 +211,10 @@ namespace HaloScriptConverter
 
                     }
                     byte[] File1Array = File1List.ToArray(); //Back to an array so we can write it to file
-                    File.WriteAllBytes(string4, File1Array);
+                    File.WriteAllBytes(args[3], File1Array);
                     Console.WriteLine("Operation completed successfully.");
                 }
-                if ((string1.ToLower() == "reach") && (string2.ToLower() == "h2mcc"))
+                if ((args[0].ToLower() == "reach") && (args[1].ToLower() == "h2mcc"))
                 {
                     for (int i = 2; i < File1ListCapacity; i = i + 24) //Looks for opcodes of a value and changes them if they exist
                     {
@@ -245,7 +290,7 @@ namespace HaloScriptConverter
                                 File1List[i] = 47;
                                 File1List[i + 1] = 2;
                             }
-                            if ((File1List[i] == 122) && (File1List[i + 1] == 4))
+                            if ((File1List[i] == 122) && (File1List[i + 1] == 4)) //game_save
                             {
                                 File1List[i] = 75;
                                 File1List[i + 1] = 2;
@@ -328,6 +373,51 @@ namespace HaloScriptConverter
                             {
                                 Console.WriteLine("switch_zone_set Function not supported in Halo 2");
                             }
+                            if ((File1List[i] == 110) && (File1List[i + 1] == 3)) //player_action_test_vision_trigger
+                            {
+                                File1List[i] = 226;
+                                File1List[i + 1] = 1;
+                            }
+                            if ((File1List[i] == 112) && (File1List[i + 1] == 3)) //player_action_test_rotate_grenades
+                            {
+                                File1List[i] = 229;
+                                File1List[i + 1] = 1;
+                            }
+                            if ((File1List[i] == 111) && (File1List[i + 1] == 3)) //player_action_test_rotate_weapons
+                            {
+                                File1List[i] = 228;
+                                File1List[i + 1] = 1;
+                            }
+                            if ((File1List[i] == 23) && (File1List[i + 1] == 0)) //sleep_forever sounds nice
+                            {
+                                File1List[i] = 20;
+                                File1List[i + 1] = 0;
+                            }
+                            if ((File1List[i] == 7) && (File1List[i + 1] == 0)) //and
+                            {
+                                File1List[i] = 5;
+                                File1List[i + 1] = 0;
+                            }
+                            if ((File1List[i] == 77) && (File1List[i + 1] == 1)) //ai_disregard
+                            {
+                                File1List[i] = 58;
+                                File1List[i + 1] = 1;
+                            }
+                            if ((File1List[i] == 185) && (File1List[i + 1] == 1)) //ai_kill
+                            {
+                                File1List[i] = 40;
+                                File1List[i + 1] = 1;
+                            }
+                            if ((File1List[i] == 139) && (File1List[i + 1] == 1)) //drop being used as placeholder for hud_set_training_text
+                            {
+                                File1List[i] = 120;
+                                File1List[i + 1] = 2;
+                            }
+                            if ((File1List[i] == 135) && (File1List[i + 1] == 1)) //cheat_active_camouflage being used as placeholder for hud_show_training_text
+                            {
+                                File1List[i] = 120;
+                                File1List[i + 1] = 2;
+                            }
                         }
                     }
                     for (int i = 4; i < File1ListCapacity; i = i + 24) //Value types, hopefully not too many of these.
@@ -389,7 +479,7 @@ namespace HaloScriptConverter
                         }
                     }
                     byte[] File1Array = File1List.ToArray(); //Back to an array so we can write it to file
-                    File.WriteAllBytes(string4, File1Array);
+                    File.WriteAllBytes(args[3], File1Array);
                     Console.WriteLine("Operation completed successfully.");
                 }
                 else
