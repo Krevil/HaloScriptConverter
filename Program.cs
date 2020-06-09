@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 
 namespace HaloScriptConverter
 {
@@ -11,22 +12,38 @@ namespace HaloScriptConverter
         {
             try
             {
-                if (args.Length < 4)
+                string InputGame = "null";
+                string OutputGame = "null";
+                string InputFile = "null";
+                string OutputFile = "null";
+                if (args.Length == 4)
+                {
+                    InputGame = args[0];
+                    OutputGame = args[1];
+                    InputFile = args[2];
+                    OutputFile = args[3];
+                }
+                if (args.Length != 4)
                 {
                     Console.WriteLine("Please specify an input game");
-                    args[0] = Console.ReadLine();
+                    InputGame = Console.ReadLine();
                     Console.WriteLine("Please specify an output game");
-                    args[1] = Console.ReadLine();
+                    OutputGame = Console.ReadLine();
                     Console.WriteLine("Please specify an input file");
-                    args[2] = Console.ReadLine();
+                    InputFile = Console.ReadLine();
                     Console.WriteLine("Please specify an output file");
-                    args[3] = Console.ReadLine();
+                    OutputFile = Console.ReadLine();
                 }
-                byte[] File1 = File.ReadAllBytes(args[2]);
+                if ((InputGame == "null") || (OutputGame == "null"))
+                {
+                    throw new IndexOutOfRangeException("Hey, stop that! You're breaking my fragile code!");
+                }
+                Console.WriteLine(InputGame);
+                byte[] File1 = File.ReadAllBytes(InputFile);
                 List<byte> File1List = File1.ToList(); //Convert to list because removing elements from arrays is yucky
                 int File1ListCapacity = File1List.Capacity;
                 #region h3campaignforge
-                /*if ((args[0].ToLower() == "h3") && (args[1].ToLower() == "h3forge")) //for removing undesirables
+                /*if ((InputGame.ToLower() == "h3") && (OutputGame.ToLower() == "h3forge")) //for removing undesirables
                 {
                     for (int i = 2; i < File1ListCapacity; i = i + 24) //Looks for opcodes of a value and changes them if they exist
                     {
@@ -59,11 +76,11 @@ namespace HaloScriptConverter
                         }
                     }
                     byte[] File1Array = File1List.ToArray(); //Back to an array so we can write it to file
-                    File.WriteAllBytes(args[3], File1Array);
+                    File.WriteAllBytes(OutputFile, File1Array);
                     Console.WriteLine("Operation completed successfully.");
                 }*/
                 #endregion
-                if ((args[0].ToLower() == "reach") && (args[1].ToLower() == "h3mcc")) //no byte stripping, yay!
+                if ((InputGame.ToLower() == "reach") && (OutputGame.ToLower() == "h3mcc")) //no byte stripping, yay!
                 {
                     for (int i = 2; i < File1ListCapacity; i = i + 24) //Looks for opcodes of a value and changes them if they exist
                     {
@@ -211,10 +228,10 @@ namespace HaloScriptConverter
 
                     }
                     byte[] File1Array = File1List.ToArray(); //Back to an array so we can write it to file
-                    File.WriteAllBytes(args[3], File1Array);
+                    File.WriteAllBytes(OutputFile, File1Array);
                     Console.WriteLine("Operation completed successfully.");
                 }
-                if ((args[0].ToLower() == "reach") && (args[1].ToLower() == "h2mcc"))
+                if ((InputGame.ToLower() == "reach") && (OutputGame.ToLower() == "h2mcc"))
                 {
                     for (int i = 2; i < File1ListCapacity; i = i + 24) //Looks for opcodes of a value and changes them if they exist
                     {
@@ -371,7 +388,7 @@ namespace HaloScriptConverter
                             }
                             if ((File1List[i] == 180) && (File1List[i + 1] == 3)) //switch_zone_set (arg zoneset)
                             {
-                                Console.WriteLine("switch_zone_set Function not supported in Halo 2");
+                                Console.WriteLine("Warning: switch_zone_set Function not supported in Halo 2");
                             }
                             if ((File1List[i] == 110) && (File1List[i + 1] == 3)) //player_action_test_vision_trigger
                             {
@@ -393,7 +410,7 @@ namespace HaloScriptConverter
                                 File1List[i] = 20;
                                 File1List[i + 1] = 0;
                             }
-                            if ((File1List[i] == 7) && (File1List[i + 1] == 0)) //and
+                            if ((File1List[i] == 7) && (File1List[i + 1] == 0) && (File1List[i + 2] != 7)) //and
                             {
                                 File1List[i] = 5;
                                 File1List[i + 1] = 0;
@@ -479,7 +496,7 @@ namespace HaloScriptConverter
                         }
                     }
                     byte[] File1Array = File1List.ToArray(); //Back to an array so we can write it to file
-                    File.WriteAllBytes(args[3], File1Array);
+                    File.WriteAllBytes(OutputFile, File1Array);
                     Console.WriteLine("Operation completed successfully.");
                 }
                 else
