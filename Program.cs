@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
-using System.Diagnostics;
 
 namespace HaloScriptConverter
 {
@@ -247,10 +246,6 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 31;
                             }
-                            if (File1List[i] == 189)
-                            {
-                                File1List[i] = 124;
-                            }
                             if ((File1List[i] == 169) && (File1List[i + 1] == 1))
                             {
                                 File1List[i] = 34;
@@ -259,7 +254,7 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 19;
                             }
-                            if (File1List[i] == 18)
+                            if (File1List[i] == 18) //greater than
                             {
                                 File1List[i] = 15;
                             }
@@ -297,7 +292,7 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 18;
                             }
-                            if (File1List[i] == 24)
+                            if (File1List[i] == 24) //sleep_until
                             {
                                 File1List[i] = 21;
                             }
@@ -358,7 +353,7 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 4;
                             }
-                            if ((File1List[i] == 16) && (File1List[i + 2] != 16))
+                            if ((File1List[i] == 16) && (File1List[i + 2] != 16)) //equals
                             {
                                 File1List[i] = 13;
                             }
@@ -379,7 +374,7 @@ namespace HaloScriptConverter
                             }
                             if ((File1List[i] == 30) && (File1List[i + 1] == 0)) //unit
                             {
-                                File1List[i] = 21;
+                                File1List[i] = 24;
                             }
                             if ((File1List[i] == 77) && (File1List[i + 1] == 0)) //list_get
                             {
@@ -444,6 +439,37 @@ namespace HaloScriptConverter
                                 File1List[i] = 91;
                                 File1List[i + 1] = 0;
                             }
+                            if ((File1List[i] == 155) && (File1List[i + 1] == 0)) //object_can_take_damage
+                            {
+                                File1List[i] = 91;
+                                File1List[i + 1] = 0;
+                            }
+                            if ((File1List[i] == 8) && (File1List[i + 1] == 0)) //or
+                            {
+                                File1List[i] = 6;
+                            }
+                            if ((File1List[i] == 124) && (File1List[i + 1] == 0)) //object_get_health
+                            {
+                                File1List[i] = 69; //nice
+                            }
+                            if ((File1List[i] == 189) && (File1List[i + 1] == 0)) //random_range
+                            {
+                                File1List[i] = 124;
+                            }
+                            if ((File1List[i] == 166) && (File1List[i + 1] == 0)) //object_teleport
+                            {
+                                File1List[i] = 105;
+                            }
+                            if ((File1List[i] == 108) && (File1List[i + 1] == 1)) //unit_add_equipment
+                            {
+                                File1List[i] = 250;
+                                File1List[i + 1] = 0;
+                            }
+                            if ((File1List[i] == 25) && (File1List[i + 1] == 0) && (File1List[i + 2] == 25)) //starting profile
+                            {
+                                File1List[i] = 24;
+                                File1List[i + 1] = 0;
+                            }
                         }
                     }
                     for (int i = 4; i < File1ListCapacity; i = i + 24) //Value types, hopefully not too many of these.
@@ -472,6 +498,10 @@ namespace HaloScriptConverter
                             if (File1List[i] == 71) //object
                             {
                                 File1List[i] = 50;
+                            }
+                            if (File1List[i] == 25) //starting profile
+                            {
+                                File1List[i] = 24;
                             }
                         }
 
