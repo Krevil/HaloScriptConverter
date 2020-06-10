@@ -470,6 +470,26 @@ namespace HaloScriptConverter
                                 File1List[i] = 24;
                                 File1List[i + 1] = 0;
                             }
+                            if ((File1List[i] == 197) && (File1List[i + 1] == 4)) //sound_looping_start (no stringid arg)
+                            {
+                                File1List[i] = 93;
+                                File1List[i + 1] = 2;
+                            }
+                            if ((File1List[i] == 37) && (File1List[i + 1] == 0)) //looping_sound
+                            {
+                                File1List[i] = 35;
+                                File1List[i + 1] = 0;
+                            }
+                            if ((File1List[i] == 199) && (File1List[i + 1] == 4)) //sound_looping_stop
+                            {
+                                File1List[i] = 94;
+                                File1List[i + 1] = 2;
+                            }
+                            if ((File1List[i] == 73) && (File1List[i + 1] == 4)) //game_is_cooperative
+                            {
+                                File1List[i] = 56;
+                                File1List[i + 1] = 2;
+                            }
                         }
                     }
                     for (int i = 4; i < File1ListCapacity; i = i + 24) //Value types, hopefully not too many of these.
@@ -502,6 +522,10 @@ namespace HaloScriptConverter
                             if (File1List[i] == 25) //starting profile
                             {
                                 File1List[i] = 24;
+                            }
+                            if (File1List[i] == 37) //looping sound
+                            {
+                                File1List[i] = 35;
                             }
                         }
 
