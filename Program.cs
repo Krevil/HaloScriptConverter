@@ -87,19 +87,33 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 2;
                             }
-                            if ((File1List[i] == 6) && (File1List[i + 1] == 0) && (File1List[i + 2] == 5)) //set
+                            if ((File1List[i] == 6) && (File1List[i + 1] == 0) && (File1List[i + 2] != 6)) //set
                             {
                                 File1List[i] = 4;
                             }
-                            if ((File1List[i] == 16) && (File1List[i + 1] == 0) && (File1List[i + 2] == 5)) //equals
+                            if ((File1List[i] == 7) && (File1List[i + 1] == 0) && (File1List[i + 2] != 7)) //and
+                            {
+                                File1List[i] = 5;
+                                File1List[i + 1] = 0;
+                            }
+                            if ((File1List[i] == 8) && (File1List[i + 1] == 0)) //or
+                            {
+                                File1List[i] = 6;
+                            }
+                            if ((File1List[i] == 91) && (File1List[i + 1] == 1)) //unit_get_health
+                            {
+                                File1List[i] = 10;
+                                File1List[i + 1] = 1;
+                            }
+                            if ((File1List[i] == 16) && (File1List[i + 1] == 0) && (File1List[i + 2] != 16))   //equals
                             {
                                 File1List[i] = 13;
                             }
-                            if ((File1List[i] == 18) && (File1List[i + 1] == 0) && (File1List[i + 2] == 5))//greater than
+                            if ((File1List[i] == 18) && (File1List[i + 1] == 0)) //greater than
                             {
                                 File1List[i] = 15;
                             }
-                            if ((File1List[i] == 21) && (File1List[i + 1] == 0) && (File1List[i + 2] == 5)) //less than equals
+                            if ((File1List[i] == 21) && (File1List[i + 1] == 0)) //less than equals
                             {
                                 File1List[i] = 18;
                             }
@@ -107,9 +121,29 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 19;
                             }
-                            if ((File1List[i] == 24) && (File1List[i + 1] == 0)) //sleep_until
+                            if ((File1List[i] == 23) && (File1List[i + 1] == 0)) //sleep_forever sounds nice
                             {
                                 File1List[i] = 21;
+                                File1List[i + 1] = 0;
+                            }
+                            if ((File1List[i] == 24) && (File1List[i + 1] == 0)) //sleep_until
+                            {
+                                File1List[i] = 22;
+                            }
+                            if ((File1List[i] == 25) && (File1List[i + 1] == 0) && (File1List[i + 2] == 25)) //starting profile
+                            {
+                                File1List[i] = 25;
+                                File1List[i + 1] = 0;
+                            }
+                            if ((File1List[i] == 108) && (File1List[i + 1] == 1)) //unit_add_equipment
+                            {
+                                File1List[i] = 25;
+                                File1List[i + 1] = 1;
+                            }
+                            if ((File1List[i] == 37) && (File1List[i + 1] == 0)) //not
+                            {
+                                File1List[i] = 26;
+                                File1List[i + 1] = 0;
                             }
                             if ((File1List[i] == 28) && (File1List[i + 1] == 0)) //zone_set
                             {
@@ -117,99 +151,199 @@ namespace HaloScriptConverter
                             }
                             if ((File1List[i] == 242) && (File1List[i + 1] == 3)) //fade_in
                             {
-                                File1List[i] = 30;
+                                File1List[i] = 31;
                             }
                             if ((File1List[i] == 0) && (File1List[i + 1] == 4)) //cinematic_stop
                             {
-                                File1List[i] = 33;
+                                File1List[i] = 34;
                                 File1List[i + 1] = 3;
                             }
-                            if ((File1List[i] == 3) && (File1List[i + 1] == 4)) //cinematic_show_letterbox
+                            if ((File1List[i] == 37) && (File1List[i + 1] == 0)) //looping_sound
                             {
                                 File1List[i] = 36;
-                                File1List[i + 1] = 1;
+                                File1List[i + 1] = 0;
                             }
-                            if ((File1List[i] == 4) && (File1List[i + 1] == 4)) //cinematic_show_letterbox_immediate
+                            if ((File1List[i] == 3) && (File1List[i + 1] == 4)) //cinematic_show_letterbox
                             {
                                 File1List[i] = 37;
                                 File1List[i + 1] = 3;
                             }
-                            if ((File1List[i] == 5) && (File1List[i + 1] == 4)) //cinematic_set_title
+                            if ((File1List[i] == 4) && (File1List[i + 1] == 4)) //cinematic_show_letterbox_immediate
                             {
                                 File1List[i] = 38;
                                 File1List[i + 1] = 3;
                             }
-                            if ((File1List[i] == 56) && (File1List[i + 2] != 78)) //players
+                            if ((File1List[i] == 5) && (File1List[i + 1] == 4)) //cinematic_set_title
                             {
                                 File1List[i] = 39;
+                                File1List[i + 1] = 3;
+                            }
+                            if ((File1List[i] == 56) && (File1List[i + 2] != 78)) //players
+                            {
+                                File1List[i] = 40;
                             }
                             if ((File1List[i] == 99) && (File1List[i + 1] == 0)) //object_create_anew
                             {
-                                File1List[i] = 48;
+                                File1List[i] = 69; //nice
                             }
                             if ((File1List[i] == 54) && (File1List[i + 1] != 1)) //team
                             {
                                 File1List[i] = 51;
                             }
-                            if ((File1List[i] == 78) && (File1List[i + 2] != 78)) //list_count
+                            if ((File1List[i] == 77) && (File1List[i + 1] == 0)) //list_get
                             {
                                 File1List[i] = 52;
                             }
+                            if ((File1List[i] == 78) && (File1List[i + 2] != 78)) //list_count
+                            {
+                                File1List[i] = 53;
+                            }
+                            if ((File1List[i] == 79) && (File1List[i + 1] == 0)) //list_count_not_dead
+                            {
+                                File1List[i] = 54;
+                                File1List[i + 1] = 0;
+                            }
+                            if ((File1List[i] == 30) && (File1List[i + 1] == 0)) //unit
+                            {
+                                File1List[i] = 25;
+                            }
                             if ((File1List[i] == 78) && (File1List[i + 2] == 78)) //object_name
                             {
-                                File1List[i] = 72;
+                                File1List[i] = 73;
                             }
                             if ((File1List[i] == 169) && (File1List[i + 1] == 1)) //ai_place
                             {
-                                File1List[i] = 74;
+                                File1List[i] = 75;
+                            }
+                            if ((File1List[i] == 185) && (File1List[i + 1] == 1)) //ai_kill
+                            {
+                                File1List[i] = 80;
+                                File1List[i + 1] = 1;
+                            }
+                            if ((File1List[i] == 69) && (File1List[i + 1] == 4)) //game_won
+                            {
+                                File1List[i] = 90;
+                                File1List[i + 1] = 3;
+                            }
+                            if ((File1List[i] == 73) && (File1List[i + 1] == 4)) //game_is_cooperative
+                            {
+                                File1List[i] = 93;
+                                File1List[i + 1] = 3;
+                            }
+                            if ((File1List[i] == 124) && (File1List[i + 1] == 0)) //object_get_health
+                            {
+                                File1List[i] = 94;
                             }
                             if ((File1List[i] == 207) && (File1List[i + 1] == 1)) //ai_allegiance
                             {
-                                File1List[i] = 95;
+                                File1List[i] = 96;
                             }
-                            if ((File1List[i] == 122) && (File1List[i + 1] == 4)) //game_save
+                            if ((File1List[i] == 212) && (File1List[i + 1] == 1)) //ai_disregard
                             {
-                                File1List[i] = 95;
-                                File1List[i + 1] = 3;
+                                File1List[i] = 101;
+                                File1List[i + 1] = 1;
+                            }
+                            if ((File1List[i] == 152) && (File1List[i + 1] == 0)) //object_cannot_take_damage
+                            {
+                                File1List[i] = 117; //Green, sir
+                                File1List[i + 1] = 0;
+                            }
+                            if ((File1List[i] == 155) && (File1List[i + 1] == 0)) //object_can_take_damage
+                            {
+                                File1List[i] = 118;
+                                File1List[i + 1] = 0;
                             }
                             if ((File1List[i] == 234) && (File1List[i + 1] == 1)) //ai_living_count
                             {
-                                File1List[i] = 122;
+                                File1List[i] = 123;
+                            }
+                            if ((File1List[i] == 166) && (File1List[i + 1] == 0)) //object_teleport
+                            {
+                                File1List[i] = 128;
                             }
                             if ((File1List[i] == 189) && (File1List[i + 1] == 0)) //random_range
                             {
-                                File1List[i] = 147;
+                                File1List[i] = 148;
                             }
                             if ((File1List[i] == 59) && (File1List[i + 1] == 3)) //camera_control
                             {
-                                File1List[i] = 149;
+                                File1List[i] = 150;
                                 File1List[i + 1] = 2;
+                            }
+                            if ((File1List[i] == 122) && (File1List[i + 1] == 4)) //game_save
+                            {
+                                File1List[i] = 150;
+                                File1List[i + 1] = 3;
+                            }
+                            if ((File1List[i] == 197) && (File1List[i + 1] == 4)) //sound_looping_start (no stringid arg)
+                            {
+                                File1List[i] = 171;
+                                File1List[i + 1] = 3;
+                            }
+                            if ((File1List[i] == 199) && (File1List[i + 1] == 4)) //sound_looping_stop
+                            {
+                                File1List[i] = 172;
+                                File1List[i + 1] = 3;
                             }
                             if ((File1List[i] == 100) && (File1List[i + 1] == 3)) //player_enable_input
                             {
-                                File1List[i] = 186;
+                                File1List[i] = 187;
                                 File1List[i + 1] = 2;
                             }
                             if ((File1List[i] == 106) && (File1List[i + 1] == 3)) //player_camera_control
                             {
-                                File1List[i] = 191;
+                                File1List[i] = 192;
+                                File1List[i + 1] = 2;
+                            }
+                            if ((File1List[i] == 107) && (File1List[i + 1] == 3)) //player_action_test_reset
+                            {
+                                File1List[i] = 193;
+                                File1List[i + 1] = 2;
+                            }
+                            if ((File1List[i] == 113) && (File1List[i + 1] == 3)) //player_action_test_jump
+                            {
+                                File1List[i] = 194;
+                                File1List[i + 1] = 2;
+                            }
+                            if ((File1List[i] == 110) && (File1List[i + 1] == 3)) //player_action_test_vision_trigger
+                            {
+                                File1List[i] = 197;
+                                File1List[i + 1] = 2;
+                            }
+                            if ((File1List[i] == 111) && (File1List[i + 1] == 3)) //player_action_test_rotate_weapons
+                            {
+                                File1List[i] = 199;
+                                File1List[i + 1] = 2;
+                            }
+                            if ((File1List[i] == 112) && (File1List[i + 1] == 3)) //player_action_test_rotate_grenades
+                            {
+                                File1List[i] = 200;
                                 File1List[i + 1] = 2;
                             }
                             if ((File1List[i] == 250) && (File1List[i + 1] == 4)) //chud_cinematic_fade
                             {
-                                File1List[i] = 213;
+                                File1List[i] = 214;
                                 File1List[i + 1] = 3;
                             }
                             if ((File1List[i] == 180) && (File1List[i + 1] == 3)) //switch_zone_set (arg zoneset)
                             {
-                                File1List[i] = 228;
+                                File1List[i] = 229;
                                 File1List[i + 1] = 3;
+                            }
+                            if ((File1List[i] == 45) && (File1List[i + 1] == 1)) //unit_in_vehicle
+                            {
+                                File1List[i] = 249;
+                                File1List[i + 1] = 0;
                             }
                         }
                     }
                     for (int i = 4; i < File1ListCapacity; i = i + 24) //Value types
                     {
                         {
+                            if (File1List[i] == 72) //unit
+                            {
+                                File1List[i] = 66;
+                            }
                             if (File1List[i] == 54) //team
                             {
                                 File1List[i] = 51;
@@ -221,6 +355,14 @@ namespace HaloScriptConverter
                             if (File1List[i] == 78) //object_name
                             {
                                 File1List[i] = 72;
+                            }
+                            if (File1List[i] == 71) //object
+                            {
+                                File1List[i] = 65;
+                            }
+                            if (File1List[i] == 37) //looping sound
+                            {
+                                File1List[i] = 36;
                             }
                         }
 
@@ -237,6 +379,11 @@ namespace HaloScriptConverter
                             if ((File1List[i] == 78) && (File1List[i + 2] != 78))
                             {
                                 File1List[i] = 38;
+                            }
+                            if ((File1List[i] == 37) && (File1List[i + 1] == 0)) //not
+                            {
+                                File1List[i] = 25;
+                                File1List[i + 1] = 0;
                             }
                             if ((File1List[i] == 78) && (File1List[i + 2] == 78))
                             {
@@ -439,11 +586,6 @@ namespace HaloScriptConverter
                                 File1List[i] = 91;
                                 File1List[i + 1] = 0;
                             }
-                            if ((File1List[i] == 155) && (File1List[i + 1] == 0)) //object_can_take_damage
-                            {
-                                File1List[i] = 91;
-                                File1List[i + 1] = 0;
-                            }
                             if ((File1List[i] == 8) && (File1List[i + 1] == 0)) //or
                             {
                                 File1List[i] = 6;
@@ -490,6 +632,21 @@ namespace HaloScriptConverter
                                 File1List[i] = 56;
                                 File1List[i + 1] = 2;
                             }
+                            if ((File1List[i] == 91) && (File1List[i + 1] == 1)) //unit_get_health
+                            {
+                                File1List[i] = 239;
+                                File1List[i + 1] = 0;
+                            }
+                            if ((File1List[i] == 69) && (File1List[i + 1] == 4)) //game_won
+                            {
+                                File1List[i] = 53;
+                                File1List[i + 1] = 2;
+                            }
+                            if ((File1List[i] == 79) && (File1List[i + 1] == 0)) //list_count_not_dead
+                            {
+                                File1List[i] = 39;
+                                File1List[i + 1] = 0;
+                            }
                         }
                     }
                     for (int i = 4; i < File1ListCapacity; i = i + 24) //Value types, hopefully not too many of these.
@@ -510,22 +667,6 @@ namespace HaloScriptConverter
                             if ((File1List[i] == 78) && (File1List[i - 2] == 251))
                             {
                                 File1List[i] = 4;
-                            }
-                            if (File1List[i] == 72) //unit
-                            {
-                                File1List[i] = 51;
-                            }
-                            if (File1List[i] == 71) //object
-                            {
-                                File1List[i] = 50;
-                            }
-                            if (File1List[i] == 25) //starting profile
-                            {
-                                File1List[i] = 24;
-                            }
-                            if (File1List[i] == 37) //looping sound
-                            {
-                                File1List[i] = 35;
                             }
                         }
 
@@ -561,13 +702,6 @@ namespace HaloScriptConverter
                     byte[] File1Array = File1List.ToArray(); //Back to an array so we can write it to file
                     File.WriteAllBytes(OutputFile, File1Array);
                     Console.WriteLine("Operation completed successfully.");
-                }
-                else
-                {
-                    Console.WriteLine("Sorry, those aren't the right arguments. Try this: \nHaloScriptConverter OriginGame TargetGame NameofFile NameofNewFile");
-                    Console.WriteLine("Example: HaloScriptConverter reach h2mcc ScriptHex NewScriptHex");
-                    Console.WriteLine("Current supported conversions:");
-                    Console.WriteLine("reach to h2mcc");
                 }
             }
             catch
