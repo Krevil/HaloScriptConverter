@@ -203,6 +203,11 @@ namespace HaloScriptConverter
                                 File1List[i] = 54;
                                 File1List[i + 1] = 0;
                             }
+                            if ((File1List[i] == 109) && (File1List[i + 1] == 6)) //game_coop_player_count
+                            {
+                                File1List[i] = 54;
+                                File1List[i + 1] = 5;
+                            }
                             if ((File1List[i] == 30) && (File1List[i + 1] == 0)) //unit
                             {
                                 File1List[i] = 25;
@@ -211,9 +216,9 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 73;
                             }
-                            if ((File1List[i] == 169) && (File1List[i + 1] == 1)) //ai_place
+                            if ((File1List[i] == 169) && (File1List[i + 1] == 1)) //ai_place (without short arg)
                             {
-                                File1List[i] = 75;
+                                File1List[i] = 74;
                             }
                             if ((File1List[i] == 185) && (File1List[i + 1] == 1)) //ai_kill
                             {
@@ -223,6 +228,11 @@ namespace HaloScriptConverter
                             if ((File1List[i] == 69) && (File1List[i + 1] == 4)) //game_won
                             {
                                 File1List[i] = 90;
+                                File1List[i + 1] = 3;
+                            }
+                            if ((File1List[i] == 71) && (File1List[i + 1] == 4)) //game_revert
+                            {
+                                File1List[i] = 92;
                                 File1List[i + 1] = 3;
                             }
                             if ((File1List[i] == 73) && (File1List[i + 1] == 4)) //game_is_cooperative
