@@ -140,7 +140,7 @@ namespace HaloScriptConverter
                                 File1List[i] = 25;
                                 File1List[i + 1] = 1;
                             }
-                            if ((File1List[i] == 37) && (File1List[i + 1] == 0)) //not
+                            if ((File1List[i] == 37) && (File1List[i + 1] == 0) && (File1List[i + 2] != 37)) //not
                             {
                                 File1List[i] = 26;
                                 File1List[i + 1] = 0;
