@@ -100,6 +100,11 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 6;
                             }
+                            if ((File1List[i] == 9) && (File1List[i + 1] == 0) && ((((File1List[i+2] == 2)) && (File1List[i + 4] == 9)) || ((File1List[i + 2] == 7)) && (File1List[i + 4] == 8))) //plus
+                            {
+                                File1List[i] = 7;
+                                File1List[i + 1] = 0;
+                            }
                             if ((File1List[i] == 91) && (File1List[i + 1] == 1)) //unit_get_health
                             {
                                 File1List[i] = 10;
@@ -252,6 +257,11 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 101;
                                 File1List[i + 1] = 1;
+                            }
+                            if ((File1List[i] == 144) && (File1List[i + 1] == 0)) //object_damage_damage_section
+                            {
+                                File1List[i] = 111;
+                                File1List[i + 1] = 0;
                             }
                             if ((File1List[i] == 152) && (File1List[i + 1] == 0)) //object_cannot_take_damage
                             {
