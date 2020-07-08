@@ -233,7 +233,7 @@ namespace HaloScriptConverter
                             }
                             if ((File1List[i] == 78) && ((File1List[i + 2] == 78) || (File1List[i + 2] == 75))) //object_name
                             {
-                                File1List[i] = 73;
+                                File1List[i] = 72;
                             }
                             if ((File1List[i] == 169) && (File1List[i + 1] == 1)) //ai_place (without short arg)
                             {
