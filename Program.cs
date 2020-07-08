@@ -213,7 +213,7 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 52;
                             }
-                            if ((File1List[i] == 78) && (File1List[i + 2] != 78)) //list_count
+                            if ((File1List[i] == 78) && (File1List[i + 2] != 78) && (File1List[i + 2] != 75)) //list_count
                             {
                                 File1List[i] = 53;
                             }
@@ -231,7 +231,7 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 25;
                             }
-                            if ((File1List[i] == 78) && (File1List[i + 2] == 78)) //object_name
+                            if ((File1List[i] == 78) && ((File1List[i + 2] == 78) || (File1List[i + 2] == 75))) //object_name
                             {
                                 File1List[i] = 73;
                             }
@@ -393,6 +393,10 @@ namespace HaloScriptConverter
                             if (File1List[i] == 78) //object_name
                             {
                                 File1List[i] = 72;
+                            }
+                            if (File1List[i] == 75) //device
+                            {
+                                File1List[i] = 69;
                             }
                             if (File1List[i] == 71) //object
                             {
