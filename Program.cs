@@ -139,6 +139,10 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 22;
                             }
+                            if ((File1List[i] == 30) && (File1List[i + 1] == 0)) //unit
+                            {
+                                File1List[i] = 25;
+                            }
                             if ((File1List[i] == 25) && (File1List[i + 1] == 0) && (File1List[i + 2] == 25)) //starting profile
                             {
                                 File1List[i] = 25;
@@ -213,7 +217,7 @@ namespace HaloScriptConverter
                             {
                                 File1List[i] = 52;
                             }
-                            if ((File1List[i] == 78) && (File1List[i + 2] != 78) && (File1List[i + 2] != 75)) //list_count
+                            if ((File1List[i] == 78) && ((File1List[i + 2] == 7) || (File1List[i + 2] == 2))) //list_count
                             {
                                 File1List[i] = 53;
                             }
@@ -227,9 +231,9 @@ namespace HaloScriptConverter
                                 File1List[i] = 54;
                                 File1List[i + 1] = 5;
                             }
-                            if ((File1List[i] == 30) && (File1List[i + 1] == 0)) //unit
+                            if ((File1List[i] == 78) && (File1List[i + 2] == 71)) //object (named)
                             {
-                                File1List[i] = 25;
+                                File1List[i] = 72;
                             }
                             if ((File1List[i] == 78) && ((File1List[i + 2] == 78) || (File1List[i + 2] == 75))) //object_name
                             {
